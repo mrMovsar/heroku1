@@ -16,7 +16,7 @@ function App() {
   
   return (
     <div className="App">
-      <h1>mahrab</h1>
+      <h1>ReactPro</h1>
       {loading ? 'please wait...' : ''}
       {todos.map(todo => {
     return(
