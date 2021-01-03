@@ -1,6 +1,7 @@
 import './App.css';
 import {useDispatch, useSelector} from 'react-redux'
 import { loadTodos } from './action';
+import { removeTodo } from './action';
 import { useEffect } from 'react';
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
     dispatch(loadTodos());
   }, []);
 
+  const handleDelete = (id) => {
+    dispatch(removeTodo(id))
+  }
   
   return (
     <div className="App">
@@ -20,9 +24,13 @@ function App() {
       {loading ? 'please wait...' : ''}
       {todos.map(todo => {
     return(
-      <div>
-        {todo.id}--
-        {todo.title}
+      <div className="title">
+        <div className="check">
+          <input type="checkbox"/>
+           {todo.title}
+        </div>
+       
+        <button onClick={() => handleDelete(todo.id)} className="btn">Delete</button>
       </div>
     )
   })}

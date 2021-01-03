@@ -12,3 +12,18 @@ export function loadTodos() {
         })
     }
 }
+
+export const removeTodo = (id) => {
+    return (dispatch) => {
+        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
+            method: 'DELETE'
+        })
+        .then((response) => response.json())
+        .then((json) => {
+            dispatch({
+                type: 'delete',
+                payload: id
+            })
+        })
+    }
+}
