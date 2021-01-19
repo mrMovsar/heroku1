@@ -26,8 +26,9 @@ function App() {
       <h1>ReactPro</h1>
       {loading ? 'please wait...' : ''}
       {todos.map(todo => {
+        const todoclass = todo.completed?"title" : "titlef";
     return(
-      <div className="title">
+      <div className={todoclass}>
         <div className="check">
           <input type="checkbox" 
           checked = {todo.completed} 
@@ -36,7 +37,10 @@ function App() {
            {todo.title}
         </div>
        
-        <button onClick={() => handleDelete(todo.id)} className="btn">Delete</button>
+        <button 
+        onClick={() => handleDelete(todo.id)} 
+        disabled = {todo.deleting}
+        className="btn">Delete</button>
       </div>
     )
   })}

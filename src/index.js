@@ -23,6 +23,20 @@ const reducer = (state = initialState, action) => {
         todos: action.payload,
         loading: false
       }
+    
+    case 'startDeleting':
+      return {
+        ...state,
+        todos: state.todos.map(todo => {
+          if(todo.id === action.payload) {
+            return {
+              ...todo,
+              deleting: true
+            }
+          }
+          return todo;
+        })
+      }  
 
     case 'delete':
       return {
