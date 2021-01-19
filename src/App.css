@@ -6,10 +6,13 @@
   padding: 20px 0;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid black;
 }
 .check{
   padding: 0 20px;
 }
 .btn{
   background-color: rgb(138, 179, 233);
+  padding: 5px;
+  border-radius: 3px;
 }

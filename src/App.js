@@ -1,7 +1,6 @@
 import './App.css';
 import {useDispatch, useSelector} from 'react-redux'
-import { loadTodos } from './action';
-import { removeTodo } from './action';
+import { loadTodos, removeTodo, checkTodo } from './action';
 import { useEffect } from 'react';
 
 function App() {
@@ -18,6 +17,10 @@ function App() {
     dispatch(removeTodo(id))
   }
   
+  const handleCheck = (id, completed) => {
+    dispatch(checkTodo(id, completed))
+  }
+
   return (
     <div className="App">
       <h1>ReactPro</h1>
@@ -26,7 +29,10 @@ function App() {
     return(
       <div className="title">
         <div className="check">
-          <input type="checkbox"/>
+          <input type="checkbox" 
+          checked = {todo.completed} 
+          onChange={() => handleCheck(todo.id, todo.completed)}
+          />
            {todo.title}
         </div>
        
