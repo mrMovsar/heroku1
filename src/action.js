@@ -31,6 +31,7 @@ export const removeTodo = (id) => {
 
 export const checkTodo = (id, completed) => {
     return function (dispatch) {
+        dispatch ({ type: 'start_checking', payload: id });
         fetch(`https://jsonplaceholder.typicode.com/todos/${id}`,{
             method: 'PATCH',
             body: JSON.stringify({ completed: !completed }),
